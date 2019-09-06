@@ -1,8 +1,6 @@
 FROM drachtio/drachtio-freeswitch-base:1.8-slim
 
 
-
-
 RUN apt-get update
 
 RUN apt-get install -y vim net-tools sngrep curl
@@ -10,6 +8,8 @@ RUN apt-get install -y vim net-tools sngrep curl
 COPY vars_diff.xml /usr/local/freeswitch/conf/
 
 COPY ./sip_profiles/mrf.xml /usr/local/freeswitch/sip_profiles/
+
+COPY ./dialplan/mrf.xml /usr/local/freeswitch/dialplan/
 
 COPY ./entrypoint.sh /
 
